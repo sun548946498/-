@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>车库展示</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #202020;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: flex-start;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .caption {
+            margin-top: 20px;
+            font-size: 2em;
+            background: linear-gradient(135deg, #cccccc, #dddddd, #bbbbbb, #aaaaaa, #999999);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            animation: shine 2s infinite alternate;
+        }
+
+        details {
+            width: 80%;
+            margin: 20px auto;
+            background: #2E2E2E;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            max-height: 100px;
+            padding: 0 20px;
+        }
+
+        details[open] {
+            max-height: none; /* 取消高度限制 */
+            padding: 20px;
+        }
+
+        summary {
+            font-size: 1.5em;
+            background: linear-gradient(135deg, #cccccc, #dddddd, #bbbbbb, #aaaaaa, #999999);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            padding: 20px;
+            text-align: center;
+            user-select: none;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 800px;
+            background: linear-gradient(135deg, #3E3E3E, #2E2E2E);
+            padding: 15px;
+            border-radius: 15px;
+            margin: 10px 0;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .glow-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 0 0 #C0C0C0);
+            animation: glow 4s infinite ease-in-out;
+            pointer-events: none;
+            will-change: filter, transform;
+            transition: transform 0.5s, border 0.5s;
+            border: 5px solid transparent;
+            border-radius: 10px;
+        }
+
+        .glow-image:hover {
+            transform: rotateY(20deg) rotateX(10deg);
+            border: 5px solid rgba(192, 192, 192, 0.5);
+        }
+
+        @keyframes glow {
+            0% {
+                filter: drop-shadow(0 0 0 #C0C0C0);
+            }
+            50% {
+                filter: drop-shadow(0 0 30px #C0C0C0);
+            }
+            100% {
+                filter: drop-shadow(0 0 0 #C0C0C0);
+            }
+        }
+
+        @keyframes shine {
+            from {
+                opacity: 0.8;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        table {
+            margin: 20px auto;
+            width: 80%;
+            border-collapse: collapse;
+            color: #dddddd;
+        }
+
+        table, th, td {
+            border: 1px solid #444;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #333;
+        }
+
+        td {
+            background-color: #2E2E2E;
+        }
+    </style>
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+</head>
+<body>
+    <div class="caption">
+        我的车库展示
+    </div>
+    <details>
+        <summary>QJMotor SRK 800RR</summary>
+        <div class="content">
+            <div class="image-container">
+                <img src="https://s2.loli.net/2024/07/22/AaBwNiWVM2Uc4l8.png" alt="QJMotor SRK 800RR" class="glow-image">
+            </div>
+            <div class="image-container">
+                <img src="https://s2.loli.net/2024/07/22/Inf1JWlpEvwBryH.png" alt="QJMotor SRK 800RR" class="glow-image">
+            </div>
+            <div class="image-container">
+                <img src="https://s2.loli.net/2024/07/22/xa1bABJCzMZvom2.png" alt="QJMotor SRK 800RR" class="glow-image">
+            </div>
+            <table>
+                <tr><th>规格</th><th>详情</th></tr>
+                <tr><td>品牌</td><td>QJMotor</td></tr>
+                <tr><td>型号</td><td>SRK 800RR</td></tr>
+                <tr><td>年份</td><td>2024</td></tr>
+                <tr><td>引擎类型</td><td>四缸直列发动机</td></tr>
+                <tr><td>排量</td><td>778cc</td></tr>
+                <tr><td>最大功率</td><td>102马力（75 kW）@ 10,000 rpm</td></tr>
+                <tr><td>最大扭矩</td><td>74 Nm @ 8,000 rpm</td></tr>
+                <tr><td>冷却系统</td><td>液冷</td></tr>
+                <tr><td>变速箱</td><td>6速手动变速箱</td></tr>
+                <tr><td>传动方式</td><td>链条</td></tr>
+                <tr><td>最高速度</td><td>约220公里/小时</td></tr>
+                <tr><td>重量</td><td>207公斤</td></tr>
+                <tr><td>前悬挂</td><td>Marzocchi 倒立式前叉</td></tr>
+                <tr><td>后悬挂</td><td>单筒后减震器</td></tr>
+                <tr><td>前制动</td><td>双320毫米 Sunstar 制动盘，Brembo 径向安装的四活塞卡钳</td></tr>
+                <tr><td>后制动</td><td>单一制动盘</td></tr>
+                <tr><td>前轮胎尺寸</td><td>120/70-17</td></tr>
+                <tr><td>后轮胎尺寸</td><td>180/55-17</td></tr>
+                <tr><td>ABS</td><td>有</td></tr>
+                <tr><td>防滑控制</td><td>有</td></tr>
+                <tr><td>仪表盘</td><td>彩色 TFT 显示屏</td></tr>
+                <tr><td>其他</td><td>高配车型配有前后摄像头的行车记录仪</td></tr>
+                <tr><td>外观设计</td><td>借鉴 Honda CBR650R 和 BMW S1000RR</td></tr>
+                <tr><td>车架</td><td>钢制菱形框架，轻量化铝制后摆臂</td></tr>
+            </table>
+        </div>
+    </details>
+</body>
+</html>
