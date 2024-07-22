@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <title>车库展示</title>
     <style>
         body {
@@ -41,7 +41,7 @@
         }
 
         details[open] {
-            max-height: none; /* 取消高度限制 */
+            max-height: none;
             padding: 20px;
         }
 
@@ -64,7 +64,7 @@
         }
 
         .image-container {
-            display: flex;
+            visibility: hidden;
             justify-content: center;
             width: 100%;
             max-width: 800px;
@@ -74,6 +74,12 @@
             margin: 10px 0;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             overflow: hidden;
+            position: absolute;
+        }
+
+        .image-container.visible {
+            visibility: visible;
+            position: relative;
         }
 
         .glow-image {
@@ -134,26 +140,103 @@
         td {
             background-color: #2E2E2E;
         }
+
+        /* 新增样式 */
+        .color-select-container {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .color-button {
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .color-button:hover {
+            transform: scale(1.1);
+        }
+
+        .color-button.white {
+            background-color: white;
+        }
+
+        .color-button.red {
+            background-color: red;
+        }
+
+        .color-button.gray {
+            background-color: gray;
+        }
     </style>
     <script>
         document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // 新增颜色选择功能
+        function showImagesByColor(color) {
+            const images = document.querySelectorAll('.image-container');
+            images.forEach(image => {
+                if (image.classList.contains(color)) {
+                    image.classList.add('visible');
+                } else {
+                    image.classList.remove('visible');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showImagesByColor('white'); // 初始显示白色车型
+        });
     </script>
 </head>
 <body>
-    <div class="caption">
-        我的车库展示
-    </div>
+    <div class="caption">我的车库展示</div>
     <details>
         <summary>QJMotor SRK 800RR</summary>
         <div class="content">
-            <div class="image-container">
+            <div class="color-select-container">
+                <button class="color-button white" onclick="showImagesByColor('white')"></button>
+                <button class="color-button red" onclick="showImagesByColor('red')"></button>
+                <button class="color-button gray" onclick="showImagesByColor('silver-black')"></button>
+            </div>
+            <div class="image-container silver-black">
                 <img src="https://s2.loli.net/2024/07/22/AaBwNiWVM2Uc4l8.png" alt="QJMotor SRK 800RR" class="glow-image">
             </div>
-            <div class="image-container">
+            <div class="image-container silver-black">
                 <img src="https://s2.loli.net/2024/07/22/Inf1JWlpEvwBryH.png" alt="QJMotor SRK 800RR" class="glow-image">
             </div>
-            <div class="image-container">
+            <div class="image-container silver-black">
                 <img src="https://s2.loli.net/2024/07/22/xa1bABJCzMZvom2.png" alt="QJMotor SRK 800RR" class="glow-image">
+            </div>
+            <div class="image-container white visible">
+                <!-- 添加白色图片 -->
+                <img src="https://s2.loli.net/2024/07/22/ErS69BcZVYlmX4y.png" alt="QJMotor SRK 800RR" class="glow-image">
+            </div>
+            <div class="image-container white">
+                <!-- 添加白色图片 -->
+                <a href="https://smms.app/image/Arkdu1Sq4hwRHsW" target="_blank"><img src="https://s2.loli.net/2024/07/22/Arkdu1Sq4hwRHsW.png" alt="QJMotor SRK 800RR" class="glow-image"></a>
+            </div>
+            <div class="image-container white">
+                <!-- 添加白色图片 -->
+                <a href="https://smms.app/image/iIVTlEcmoNAuSp1" target="_blank"><img src="https://s2.loli.net/2024/07/22/iIVTlEcmoNAuSp1.png" alt="QJMotor SRK 800RR" class="glow-image"></a>
+            </div>
+            <div class="image-container red">
+                <!-- 添加红色图片 -->
+                <img src="https://s2.loli.net/2024/07/22/RfcZF6w1Uy8obu3.png" alt="QJMotor SRK 800RR" class="glow-image">
+            </div>
+            <div class="image-container red">
+                <!-- 添加红色图片 -->
+                <img src="https://s2.loli.net/2024/07/22/GliHJE4165WNz97.png" alt="QJMotor SRK 800RR" class="glow-image">
+            </div>
+            <div class="image-container red">
+                <!-- 添加红色图片 -->
+                <img src="https://s2.loli.net/2024/07/22/o2tY5xwNZPe9qvG.png" alt="QJMotor SRK 800RR" class="glow-image">
             </div>
             <table>
                 <tr><th>规格</th><th>详情</th></tr>
